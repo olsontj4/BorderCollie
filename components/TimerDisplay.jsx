@@ -55,7 +55,11 @@ export function TimerDisplay({
             <View className="flex-row gap-4">
                 <Pressable
                     onPress={toggleTimer}
-                    className="bg-blue-500 rounded-lg px-8 py-3 active:bg-blue-600"
+                    className="rounded-lg px-8 py-3"
+                    className={`${isRunning
+                        ? 'bg-gray-500 active:bg-gray-600'
+                        : 'bg-blue-500 active:bg-blue-600'
+                        } rounded-lg px-8 py-3`}
                 >
                     <Text className="text-white font-bold text-lg">
                         {isRunning ? 'Pause' : 'Start'}
@@ -64,7 +68,7 @@ export function TimerDisplay({
 
                 <Pressable
                     onPress={resetTimer}
-                    className="bg-gray-400 rounded-lg px-8 py-3 active:bg-gray-500"
+                    className="bg-red-500 rounded-lg px-8 py-3 active:bg-red-600"
                 >
                     <Text className="text-white font-bold text-lg">Reset</Text>
                 </Pressable>

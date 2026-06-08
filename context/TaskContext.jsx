@@ -27,24 +27,33 @@ export function TaskProvider({ children }) {
     ]);
 
     // Add a new task
-    const addTask = (taskData) => {
+    const addTask = (task) => {
         const newTask = {
             id: Date.now().toString(),
-            ...taskData,
-            progress: 0,
-            isActive: false,
+            ...task,
         };
-        setTasks([...tasks, newTask]);
+
+        setTasks(prev => [...prev, newTask]);
+
+        return newTask;
     };
 
     // Update an existing task
     const updateTask = (id, updates) => {
-        setTasks(tasks.map(task => task.id === id ? { ...task, ...updates } : task));
+        setTasks(prevTasks =>
+            prevTasks.map(task =>
+                task.id === id
+                    ? { ...task, ...updates }
+                    : task
+            )
+        );
     };
 
     // Delete a task
     const deleteTask = (id) => {
-        setTasks(tasks.filter(task => task.id !== id));
+        setTasks(prevTasks =>
+            prevTasks.filter(task => task.id !== id)
+        );
     };
 
     // Get a single task by ID
@@ -53,7 +62,15 @@ export function TaskProvider({ children }) {
     };
 
     return (
-        <TaskContext.Provider value={{ tasks, addTask, updateTask, deleteTask, getTask }}>
+        <TaskContext.Provider
+            value={{
+                tasks,
+                addTask,
+                updateTask,
+                deleteTask,
+                getTask
+            }}
+        >
             {children}
         </TaskContext.Provider>
     );

@@ -1,5 +1,7 @@
+/* ProgressSlider.jsx */
+import Slider from '@react-native-community/slider';
 import { useState } from 'react';
-import { Modal, Pressable, Slider, Text, View } from 'react-native';
+import { Modal, Pressable, Text, View } from 'react-native';
 
 export function ProgressSlider({
     visible = false,
@@ -38,7 +40,7 @@ export function ProgressSlider({
                             minimumValue={0}
                             maximumValue={100}
                             value={progress}
-                            onValueChange={(value) => setProgress(value[0] || value)}
+                            onValueChange={setProgress}
                             step={1}
                             minimumTrackTintColor="#3b82f6"
                             maximumTrackTintColor="#e5e7eb"

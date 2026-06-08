@@ -20,20 +20,7 @@ export default function TaskListScreen() {
         ) : (
           <View>
             {tasks.map((task) => (
-              <Link
-                key={task.id}
-                href={{
-                  pathname: '/task-details',
-                  params: { taskId: task.id },
-                }}
-                asChild
-              >
-                <TaskCard
-                  task={task}
-                  onPress={() => { }}
-                  onDelete={() => deleteTask(task.id)}
-                />
-              </Link>
+              <TaskCard key={task.id} task={task} />
             ))}
           </View>
         )}
@@ -41,7 +28,7 @@ export default function TaskListScreen() {
 
       {/* Add Task Button */}
       <View className="p-4 border-t border-gray-200 bg-white">
-        <Link href="/task-details" asChild>
+        <Link href="/task-form" asChild>
           <Pressable className="bg-blue-500 rounded-lg py-4 items-center active:bg-blue-600">
             <Text className="text-white font-bold text-lg">+ Add Task</Text>
           </Pressable>

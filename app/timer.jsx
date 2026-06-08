@@ -1,6 +1,8 @@
+/* timer.jsx */
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useContext, useState } from 'react';
 import { Alert, Pressable, Text, View } from 'react-native';
+import { CheckInModal } from '../components/CheckInModal';
 import { ProgressSlider } from '../components/ProgressSlider';
 import { TimerDisplay } from '../components/TimerDisplay';
 import { TaskContext } from '../context/TaskContext';
@@ -11,11 +13,10 @@ export default function TimerScreen() {
     const { getTask, updateTask } = useContext(TaskContext);
 
     const task = getTask(taskId);
-    const [secondsLeft, setSecondsLeft] = useState((task?.timerLength || 25) * 60);
+    const [secondsLeft, setSecondsLeft] = useState(task?.timerLength * 60);
     const [showProgressModal, setShowProgressModal] = useState(false);
-    const [nextCheckInSeconds, setNextCheckInSeconds] = useState(
-        (task?.checkInFrequency || 5) * 60
-    );
+    const [showCheckInModal, setShowCheckInModal] = useState(false);
+    const [nextCheckInSeconds, setNextCheckInSeconds] = useState(task?.checkInFrequency * 60);
 
     // Handle timer tick and check-in logic
     const handleTick = useCallback(
@@ -26,9 +27,9 @@ export default function TimerScreen() {
 
                 // Show popup when check-in frequency is reached
                 if (newValue === 0) {
-                    setShowProgressModal(true);
+                    setShowCheckInModal(true);
                     // Reset check-in counter
-                    return (task?.checkInFrequency || 5) * 60;
+                    return task?.checkInFrequency * 60;
                 }
 
                 return newValue;
@@ -49,6 +50,15 @@ export default function TimerScreen() {
                 },
             ]
         );
+    };
+
+    const notifyContact = () => {
+        console.log('Notify contact:', task?.contactName);
+
+        // Later:
+        // SMS
+        // Push notification
+        // Backend API
     };
 
     // Handle progress save
@@ -117,21 +127,12 @@ export default function TimerScreen() {
                     className="bg-green-500 rounded-lg py-4 items-center active:bg-green-600"
                 >
                     <Text className="text-white font-bold text-lg">
-                        📊 Update Progress
+                        Update Progress
                     </Text>
                 </Pressable>
 
                 <Pressable
-                    onPress={() => {
-                        Alert.alert('Exit Session?', 'Are you sure? You can resume later.', [
-                            { text: 'Cancel', style: 'cancel' },
-                            {
-                                text: 'Exit',
-                                onPress: () => router.replace('/'),
-                                style: 'destructive',
-                            },
-                        ]);
-                    }}
+                    onPress={() => router.replace('/')}
                     className="bg-gray-400 rounded-lg py-3 items-center mt-3 active:bg-gray-500"
                 >
                     <Text className="text-white font-bold">Exit Session</Text>
@@ -144,6 +145,12 @@ export default function TimerScreen() {
                 currentProgress={task.progress}
                 onClose={() => setShowProgressModal(false)}
                 onSave={handleSaveProgress}
+            />
+
+            <CheckInModal
+                visible={showCheckInModal}
+                onClose={() => setShowCheckInModal(false)}
+                onFail={notifyContact}
             />
         </View>
     );

@@ -26,7 +26,13 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="task-details"
+          name="task-form"
+          options={{
+            title: 'Task',
+          }}
+        />
+        <Stack.Screen
+          name="setup-timer"
           options={{
             title: 'Task Details',
             presentation: 'modal',
