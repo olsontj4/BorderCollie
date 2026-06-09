@@ -1,5 +1,8 @@
 /*ProgressSlider.jsx
 A slider to record percentage of task progress complete.*/
+
+// Slider component: https://github.com/callstack/react-native-slider
+// Expo compatible community module
 import Slider from '@react-native-community/slider';
 import { useState } from 'react';
 import { Modal, Pressable, Text, View } from 'react-native';

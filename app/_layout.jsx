@@ -1,6 +1,6 @@
+// File-based routing: https://expo.github.io/router
 import '@/global.css';
 import { Stack } from 'expo-router';
-import React from 'react';
 import { TaskProvider } from '../context/TaskContext';
 
 export default function RootLayout() {
