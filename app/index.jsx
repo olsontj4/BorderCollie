@@ -11,7 +11,7 @@ import { TaskCard } from '../components/TaskCard';
 import { TaskContext } from '../context/TaskContext';
 
 export default function TaskListScreen() {
-  const { tasks, deleteTask } = useContext(TaskContext);
+  const { tasks } = useContext(TaskContext);
 
   return (
     <View className="flex-1 bg-gray-50">
