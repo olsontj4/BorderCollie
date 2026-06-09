@@ -182,14 +182,6 @@ export default function TaskDetailsScreen() {
                         We'll send check-in messages to this contact
                     </Text>
                 </View>
-
-                {/* Info Box */}
-                <View className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-6">
-                    <Text className="text-sm text-blue-900">
-                        💡 <Text className="font-semibold">Tip:</Text> Set check-ins more
-                        frequently for better accountability!
-                    </Text>
-                </View>
             </ScrollView>
 
             {/* Action Buttons */}
