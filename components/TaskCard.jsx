@@ -1,3 +1,7 @@
+/*TaskCard.jsx
+A card that shows task information.
+It can be pressed to go to the setup-timer screen.
+It has an edit button to go to the task-form screen.*/
 import { useRouter } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 import { ProgressBar } from './ProgressBar';

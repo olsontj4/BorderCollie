@@ -1,3 +1,5 @@
+/*ProgressBar.jsx
+A bar to display percentage of task complete.*/
 import { Text, View } from 'react-native';
 
 export function ProgressBar({ progress = 0 }) {

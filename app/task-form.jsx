@@ -1,4 +1,6 @@
-/* task-form.jsx */
+/*task-form.jsx
+Used to create, edit, and delete a task.
+Has inputs for task name and progress.*/
 import Slider from '@react-native-community/slider';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useContext, useEffect, useState } from 'react';

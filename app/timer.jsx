@@ -1,4 +1,5 @@
-/* timer.jsx */
+/*timer.jsx
+Screen used to display timer, update progress, and display check-in popups.*/
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useContext, useState } from 'react';
 import { Alert, Pressable, Text, View } from 'react-native';

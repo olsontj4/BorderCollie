@@ -1,3 +1,7 @@
+/*CheckInModal.jsx
+Popup to check in on task focus.
+If a contact is specified, the user has one minute to acknowledge popup or contact is notified that the user needs motivation.
+If no contact is specified, only a button to acknowledge is displayed.*/
 import { useEffect, useState } from 'react';
 import { Modal, Pressable, Text, View } from 'react-native';
 

@@ -1,3 +1,6 @@
+/*TaskContext.jsx
+Contains functions to manage task data.
+It has two example tasks that appear when the app is run.*/
 import { createContext, useState } from 'react';
 
 // Create the context

@@ -1,3 +1,6 @@
+/*TimerDisplay.jsx
+A timer that counts down.
+It has buttons to start, pause, and reset the timer.*/
 import { useEffect, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 

@@ -1,4 +1,5 @@
-/* ProgressSlider.jsx */
+/*ProgressSlider.jsx
+A slider to record percentage of task progress complete.*/
 import Slider from '@react-native-community/slider';
 import { useState } from 'react';
 import { Modal, Pressable, Text, View } from 'react-native';

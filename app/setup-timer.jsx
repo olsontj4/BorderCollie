@@ -1,4 +1,5 @@
-/* setup-timer */
+/*setup-timer.jsx
+Used to set timer length and number of check-ins.*/
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useContext, useEffect, useState } from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';

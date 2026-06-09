@@ -1,3 +1,9 @@
+/*App name: Border Collie
+Description: This is an app for creating focus sessions and ensuring accountability with regular check-ins and progress reporting.
+Author: Thomas Olson, with code from Claude AI and ChatGPT.
+Created on: 5/3/2026
+Last updated: 6/8/2026*/
+
 import { Link } from 'expo-router';
 import React, { useContext } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
