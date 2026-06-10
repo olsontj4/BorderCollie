@@ -32,3 +32,9 @@ npx expo start -c
 | [Babel Preset Expo](https://docs.expo.dev/versions/latest/config/babel)            | MIT          | Babel configuration preset                      |
 | [TypeScript](https://www.typescriptlang.org)                                       | Apache 2.0   | Type checking and tooling                       |
 | [ESLint](https://eslint.org)                                                       | MIT          | Code linting and static analysis                |
+
+## Project Demos:
+
+[App Demo](https://www.youtube.com/watch?v=VrpKTvtf0lE)
+
+[Code Walkthrough](https://www.youtube.com/watch?v=_9YBRWKqEbM)
